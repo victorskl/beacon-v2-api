@@ -25,6 +25,8 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration;
 
+import java.util.List;
+
 /**
  * @author Dmitry Repchevsky
  */
@@ -32,7 +34,7 @@ package es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration;
 public class BeaconSecurityAttributes {
 
     private String default_granularity;
-    private String security_levels;
+    private List<String> security_levels;
     
     public String getDefaultGranularity() {
         return default_granularity;
@@ -42,11 +44,11 @@ public class BeaconSecurityAttributes {
         this.default_granularity = default_granularity;
     }
     
-    public String getSecurityLevels() {
+    public List<String> getSecurityLevels() {
         return security_levels;
     }
     
-    public void setSecurityLevels(String security_levels) {
+    public void setSecurityLevels(List<String> security_levels) {
         this.security_levels = security_levels;
     }
 }
