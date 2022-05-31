@@ -61,7 +61,7 @@ public interface GenomicVariationsEndpointInterface
             @QueryParam("referenceBases") String reference_bases,
             @QueryParam("alternateBases") String alternate_bases,
             @QueryParam("variantMinLength") Long variant_min_length,
-            @QueryParam("variantMinLength") Long variant_max_length,
+            @QueryParam("variantMaxLength") Long variant_max_length,
             @QueryParam("genomicAlleleShortForm") String genomic_allele_short_form,
             @QueryParam("geneid") String gene_id,
             @QueryParam("aminoacidChange") String aminoacid_change,
@@ -149,16 +149,19 @@ public interface GenomicVariationsEndpointInterface
     @Path("/g_variants/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)
     default void getBiosamples(
-            @PathParam("id") String id, 
+            @PathParam("id") String id,
+            @QueryParam("requestedSchema") String requested_schema,
+            @QueryParam("skip") Integer skip,
+            @QueryParam("limit") Integer limit,
             @Suspended AsyncResponse asyncResponse) {
 
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getBiosamples(id));
+                asyncResponse.resume(getBiosamples(id, requested_schema, skip, limit));
             });
         } else {
-            asyncResponse.resume(getBiosamples(id));
+            asyncResponse.resume(getBiosamples(id, requested_schema, skip, limit));
         }        
     }
     
@@ -184,16 +187,19 @@ public interface GenomicVariationsEndpointInterface
     @Path("/g_variants/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)
     default void getIndividuals(
-            @PathParam("id") String id, 
+            @PathParam("id") String id,
+            @QueryParam("requestedSchema") String requested_schema,
+            @QueryParam("skip") Integer skip,
+            @QueryParam("limit") Integer limit,
             @Suspended AsyncResponse asyncResponse) {
 
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getIndividuals(id));
+                asyncResponse.resume(getIndividuals(id, requested_schema, skip, limit));
             });
         } else {
-            asyncResponse.resume(getIndividuals(id));
+            asyncResponse.resume(getIndividuals(id, requested_schema, skip, limit));
         } 
     }
     
@@ -212,8 +218,6 @@ public interface GenomicVariationsEndpointInterface
             });
         } else {
             asyncResponse.resume(postIndividualsRequest(id, request));
-        } 
+        }
     }
-
-    
 }

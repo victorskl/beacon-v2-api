@@ -87,9 +87,13 @@ public interface GenomicVariationsInterface {
      * Get the biosamples list from one genomic variant, identified by its (unique) 'id'
      * 
      * @param id
+     * @param requested_schema
+     * @param skip
+     * @param limit
      * @return 
      */
-    BeaconResultsetsResponse getBiosamples(String id);
+    BeaconResultsetsResponse getBiosamples(
+            String id, String requested_schema, Integer skip, Integer limit);
     
     /**
      * Get the biosamples list from one genomic variant, identified by its (unique) 'id'
@@ -104,9 +108,13 @@ public interface GenomicVariationsInterface {
      * Get the individuals list from one genomic variant, identified by its (unique) 'id'
      * 
      * @param id
+     * @param requested_schema
+     * @param skip
+     * @param limit
      * @return 
      */
-    BeaconResultsetsResponse getIndividuals(String id);
+    BeaconResultsetsResponse getIndividuals(
+            String id, String requested_schema, Integer skip, Integer limit);
     
     /**
      * Get the individuals list from one genomic variant, identified by its (unique) 'id'
