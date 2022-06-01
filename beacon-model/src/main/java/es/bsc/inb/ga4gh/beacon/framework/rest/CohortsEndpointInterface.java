@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/cohorts")
 public interface CohortsEndpointInterface 
         extends CohortsInterface, AsyncEndpointInterface {
     
     @GET
-    @Path("/cohorts")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getCohorts(
             @QueryParam("requestedSchema") String requested_schema,
@@ -68,7 +68,7 @@ public interface CohortsEndpointInterface
     }
 
     @POST
-    @Path("/cohorts")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postCohortsRequest(
             BeaconRequestBody request,
@@ -85,7 +85,7 @@ public interface CohortsEndpointInterface
     }
     
     @GET
-    @Path("/cohorts/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneCohort(
             @PathParam("id") String id,
@@ -102,7 +102,7 @@ public interface CohortsEndpointInterface
     }
     
     @POST
-    @Path("/cohorts/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneCohortRequest(
             @PathParam("id") String id,
@@ -120,7 +120,7 @@ public interface CohortsEndpointInterface
     }
 
     @GET
-    @Path("/cohorts/{id}/individuals")
+    @Path("/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneCohortIndividuals(
             @PathParam("id") String id,
@@ -144,7 +144,7 @@ public interface CohortsEndpointInterface
     }
 
     @POST
-    @Path("/cohorts/{id}/individuals")
+    @Path("/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneCohortIndividualsRequest(
             @PathParam("id") String id,
@@ -163,7 +163,7 @@ public interface CohortsEndpointInterface
     }
     
     @GET
-    @Path("/cohorts/{id}/filtering_terms")
+    @Path("/{id}/filtering_terms")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneCohortFilteringTerms(
             @PathParam("id") String id,
@@ -183,7 +183,7 @@ public interface CohortsEndpointInterface
     }
     
     @POST
-    @Path("/cohorts/{id}/filtering_terms")
+    @Path("/{id}/filtering_terms")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneCohortFilteringTermsRequest(
             @PathParam("id") String id,

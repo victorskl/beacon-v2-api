@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/runs")
 public interface RunsEndpointInterface 
         extends RunsInterface, AsyncEndpointInterface {
 
     @GET
-    @Path("/runs")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getRuns(
             @QueryParam("requestedSchema") String requested_schema,
@@ -69,7 +69,7 @@ public interface RunsEndpointInterface
     }
         
     @POST
-    @Path("/runs")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postRunsRequest(
             BeaconRequestBody request,
@@ -86,7 +86,7 @@ public interface RunsEndpointInterface
     }
 
     @GET
-    @Path("/runs/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneRun(
             @PathParam("id") String id,
@@ -103,7 +103,7 @@ public interface RunsEndpointInterface
     }
 
     @POST
-    @Path("/runs/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneRun(
             @PathParam("id") String id,
@@ -121,7 +121,7 @@ public interface RunsEndpointInterface
     }
 
     @GET
-    @Path("/runs/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneRunGenomicVariants(
             @PathParam("id") String id,
@@ -144,7 +144,7 @@ public interface RunsEndpointInterface
     }
     
     @POST
-    @Path("/runs/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneRunGenomicVariantsRequest(
             @PathParam("id") String id,
@@ -164,7 +164,7 @@ public interface RunsEndpointInterface
     }
 
     @GET
-    @Path("/runs/{id}/analyses")
+    @Path("/{id}/analyses")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneRunAnalyses(
             @PathParam("id") String id,
@@ -187,7 +187,7 @@ public interface RunsEndpointInterface
     }
     
     @POST
-    @Path("/runs/{id}/analyses")
+    @Path("/{id}/analyses")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneRunAnalysesRequest(
             @PathParam("id") String id,
@@ -203,5 +203,4 @@ public interface RunsEndpointInterface
             asyncResponse.resume(postOneRunAnalysesRequest(id, request));
         }        
     }
-
 }

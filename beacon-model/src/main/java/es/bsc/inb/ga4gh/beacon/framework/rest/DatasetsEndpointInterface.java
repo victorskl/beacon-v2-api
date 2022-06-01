@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/datasets")
 public interface DatasetsEndpointInterface 
         extends DatasetsInterface, AsyncEndpointInterface {
 
     @GET
-    @Path("/datasets")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getDatasets(
             @QueryParam("requestedSchema") String requested_schema,
@@ -68,7 +68,7 @@ public interface DatasetsEndpointInterface
     }
 
     @POST
-    @Path("/datasets")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postDatasetsRequest(
             BeaconRequestBody request,
@@ -85,7 +85,7 @@ public interface DatasetsEndpointInterface
     }
     
     @GET
-    @Path("/datasets/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneDataset(
             @PathParam("id") String id,
@@ -102,7 +102,7 @@ public interface DatasetsEndpointInterface
     }
     
     @POST
-    @Path("/datasets/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneDatasetRequest(
             @PathParam("id") String id,
@@ -120,7 +120,7 @@ public interface DatasetsEndpointInterface
     }
 
     @GET
-    @Path("/datasets/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneDatasetGenomicVariants(
             @PathParam("id") String id,
@@ -144,7 +144,7 @@ public interface DatasetsEndpointInterface
     }
 
     @POST
-    @Path("/datasets/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneDatasetGenomicVariantsRequest(
             @PathParam("id") String id,
@@ -164,7 +164,7 @@ public interface DatasetsEndpointInterface
     }
 
     @GET
-    @Path("/datasets/{id}/biosamples")
+    @Path("/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneDatasetBiosamples(
             @PathParam("id") String id,
@@ -188,7 +188,7 @@ public interface DatasetsEndpointInterface
     }
 
     @POST
-    @Path("/datasets/{id}/biosamples")
+    @Path("/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneDatasetBiosamplesRequest(
             @PathParam("id") String id,
@@ -208,7 +208,7 @@ public interface DatasetsEndpointInterface
     }
 
     @GET
-    @Path("/datasets/{id}/individuals")
+    @Path("/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneDatasetIndividuals(
             @PathParam("id") String id,
@@ -232,7 +232,7 @@ public interface DatasetsEndpointInterface
     }
 
     @POST
-    @Path("/datasets/{id}/individuals")
+    @Path("/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneDatasetIndividualsRequest(
             @PathParam("id") String id,
@@ -248,7 +248,6 @@ public interface DatasetsEndpointInterface
         } else {
             asyncResponse.resume(
                     postOneDatasetIndividualsRequest(id, request));
-        }        
+        }
     }
-
 }

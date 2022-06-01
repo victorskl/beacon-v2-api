@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/analyses")
 public interface AnalysesEndpointInterface 
         extends AnalysesInterface, AsyncEndpointInterface {
 
     @GET
-    @Path("/analyses")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getAnalyses(
             @QueryParam("requestedSchema") String requested_schema,
@@ -69,7 +69,7 @@ public interface AnalysesEndpointInterface
     }
         
     @POST
-    @Path("/analyses")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postAnalyses(
             BeaconRequestBody request,
@@ -86,7 +86,7 @@ public interface AnalysesEndpointInterface
     }
     
     @GET
-    @Path("/analyses/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneAnalysis(
             @PathParam("id") String id,
@@ -103,7 +103,7 @@ public interface AnalysesEndpointInterface
     }
     
     @POST
-    @Path("/analyses/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneAnalysisRequest(
             @PathParam("id") String id,
@@ -121,7 +121,7 @@ public interface AnalysesEndpointInterface
     }
 
     @GET
-    @Path("/analyses/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneAnalysisGenomicVariants(
             @PathParam("id") String id,
@@ -142,7 +142,7 @@ public interface AnalysesEndpointInterface
     }
     
     @POST
-    @Path("/analyses/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneAnalysisGenomicVariantsRequest(
             @PathParam("id") String id,

@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/biosamples")
 public interface BiosamplesEndpointInterface 
         extends BiosamplesInterface, AsyncEndpointInterface {
 
     @GET
-    @Path("/biosamples")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getBiosamples(
             @QueryParam("requestedSchema") String requested_schema,
@@ -69,7 +69,7 @@ public interface BiosamplesEndpointInterface
     }
 
     @POST
-    @Path("/biosamples")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postBiosamplesRequest(
             BeaconRequestBody request,
@@ -86,7 +86,7 @@ public interface BiosamplesEndpointInterface
     }
     
     @GET
-    @Path("/biosamples/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneBiosample(
             @PathParam("id") String id,
@@ -103,7 +103,7 @@ public interface BiosamplesEndpointInterface
     }
 
     @POST
-    @Path("/biosamples/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneBiosampleRequest(
             @PathParam("id") String id,
@@ -121,7 +121,7 @@ public interface BiosamplesEndpointInterface
     }
 
     @GET
-    @Path("/biosamples/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneBiosampleGenomicVariants(
             @PathParam("id") String id,
@@ -145,7 +145,7 @@ public interface BiosamplesEndpointInterface
     }
     
     @POST
-    @Path("/biosamples/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneBiosampleGenomicVariantsRequest(
             @PathParam("id") String id,
@@ -165,7 +165,7 @@ public interface BiosamplesEndpointInterface
     }
     
     @GET
-    @Path("/biosamples/{id}/analyses")
+    @Path("/{id}/analyses")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneBiosampleAnalysis(
             @PathParam("id") String id,
@@ -189,7 +189,7 @@ public interface BiosamplesEndpointInterface
     }
     
     @POST
-    @Path("/biosamples/{id}/analyses")
+    @Path("/{id}/analyses")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneBiosampleAnalysisRequest(
             @PathParam("id") String id,
@@ -208,7 +208,7 @@ public interface BiosamplesEndpointInterface
     }
 
     @GET
-    @Path("/biosamples/{id}/runs")
+    @Path("/{id}/runs")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneBiosampleRuns(
             @PathParam("id") String id,
@@ -230,7 +230,7 @@ public interface BiosamplesEndpointInterface
     }
     
     @POST
-    @Path("/biosamples/{id}/runs")
+    @Path("/{id}/runs")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneBiosampleRuns(
             @PathParam("id") String id,
@@ -246,8 +246,6 @@ public interface BiosamplesEndpointInterface
         } else {
             asyncResponse.resume(
                 getOneBiosampleRuns(id, request));
-        }        
-
+        }
     }
-
 }

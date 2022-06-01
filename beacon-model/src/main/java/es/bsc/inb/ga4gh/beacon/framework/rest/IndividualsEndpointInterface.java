@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/individuals")
 public interface IndividualsEndpointInterface 
         extends IndividualsInterface, AsyncEndpointInterface {
 
     @GET
-    @Path("/individuals")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getIndividuals(
             @QueryParam("requestedSchema") String requested_schema,
@@ -69,7 +69,7 @@ public interface IndividualsEndpointInterface
     }
 
     @POST
-    @Path("/individuals")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postIndividualsRequest(
             BeaconRequestBody request,
@@ -86,7 +86,7 @@ public interface IndividualsEndpointInterface
     }
 
     @GET
-    @Path("/individuals/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneIndividual(
             @PathParam("id") String id,
@@ -103,7 +103,7 @@ public interface IndividualsEndpointInterface
     }
 
     @POST
-    @Path("/individuals/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneIndividualRequest(
             @PathParam("id") String id,
@@ -121,7 +121,7 @@ public interface IndividualsEndpointInterface
     }
 
     @GET
-    @Path("/individuals/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneIndividualGenomicVariants(
             @PathParam("id") String id,
@@ -145,7 +145,7 @@ public interface IndividualsEndpointInterface
     }
     
     @POST
-    @Path("/individuals/{id}/g_variants")
+    @Path("/{id}/g_variants")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneIndividualGenomicVariantsRequest(
             @PathParam("id") String id,
@@ -165,7 +165,7 @@ public interface IndividualsEndpointInterface
     }
 
     @GET
-    @Path("/individuals/{id}/biosamples")
+    @Path("/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)    
     default void getOneIndividualBiosamples(
             @PathParam("id") String id,
@@ -189,7 +189,7 @@ public interface IndividualsEndpointInterface
     }
 
     @POST
-    @Path("/individuals/{id}/biosamples")
+    @Path("/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneIndividualBiosamplesRequest(
             @PathParam("id") String id,
@@ -209,7 +209,7 @@ public interface IndividualsEndpointInterface
     }
     
     @GET
-    @Path("/individuals/filtering_terms")
+    @Path("/filtering_terms")
     @Produces(MediaType.APPLICATION_JSON)
     default void getIndividualFilteringTerms(
             @QueryParam("skip") Integer skip,
@@ -228,7 +228,7 @@ public interface IndividualsEndpointInterface
     }
     
     @POST
-    @Path("/individuals/filtering_terms")
+    @Path("/filtering_terms")
     @Produces(MediaType.APPLICATION_JSON)
     default void postIndividualFilteringTermsRequest(
             BeaconRequestBody request,
@@ -244,5 +244,4 @@ public interface IndividualsEndpointInterface
             asyncResponse.resume(postIndividualFilteringTermsRequest(request));
         }
     }
-
 }

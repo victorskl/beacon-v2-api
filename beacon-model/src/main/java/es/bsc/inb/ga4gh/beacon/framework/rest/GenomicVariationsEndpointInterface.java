@@ -42,12 +42,12 @@ import jakarta.ws.rs.core.MediaType;
  * @author Dmitry Repchevsky
  */
 
-@Path("/")
+@Path("/g_variants")
 public interface GenomicVariationsEndpointInterface 
         extends GenomicVariationsInterface, AsyncEndpointInterface {
     
     @GET
-    @Path("/g_variants")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void getGenomicVariations(
             @QueryParam("requestedSchema") String requested_schema,
@@ -88,7 +88,7 @@ public interface GenomicVariationsEndpointInterface
     }
 
     @POST
-    @Path("/g_variants")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     default void postGenomicVariationsRequest(
             BeaconRequestBody request, 
@@ -107,7 +107,7 @@ public interface GenomicVariationsEndpointInterface
     }
 
     @GET
-    @Path("/g_variants/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void getOneGenomicVariation(
             @PathParam("id") String id, 
@@ -126,7 +126,7 @@ public interface GenomicVariationsEndpointInterface
     }
 
     @POST
-    @Path("/g_variants/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     default void postOneGenomicVariationRequest(
             @PathParam("id") String id, 
@@ -146,7 +146,7 @@ public interface GenomicVariationsEndpointInterface
     }
     
     @GET
-    @Path("/g_variants/{id}/biosamples")
+    @Path("/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)
     default void getBiosamples(
             @PathParam("id") String id,
@@ -166,7 +166,7 @@ public interface GenomicVariationsEndpointInterface
     }
     
     @POST
-    @Path("/g_variants/{id}/biosamples")
+    @Path("/{id}/biosamples")
     @Produces(MediaType.APPLICATION_JSON)
     default void postBiosamplesRequest(
             @PathParam("id") String id,
@@ -184,7 +184,7 @@ public interface GenomicVariationsEndpointInterface
     }
 
     @GET
-    @Path("/g_variants/{id}/individuals")
+    @Path("/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)
     default void getIndividuals(
             @PathParam("id") String id,
@@ -204,7 +204,7 @@ public interface GenomicVariationsEndpointInterface
     }
     
     @POST
-    @Path("/g_variants/{id}/individuals")
+    @Path("/{id}/individuals")
     @Produces(MediaType.APPLICATION_JSON)
     default void postIndividualsRequest(
             @PathParam("id") String id,
