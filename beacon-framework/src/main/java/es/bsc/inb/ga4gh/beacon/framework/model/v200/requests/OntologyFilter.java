@@ -68,4 +68,8 @@ public class OntologyFilter implements BeaconQueryFilter {
         this.scope = scope;
     }
 
+    @Override
+    public String toString() {
+        return id;
+    }
 }

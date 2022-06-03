@@ -41,7 +41,7 @@ public class BeaconRequestQuery<K extends BeaconRequestParameters> {
     private String include_resultset_responses;
     private Pagination pagination;
     private String granularity;
-    private Boolean testMode;
+    private Boolean test_mode;
     
     public K getRequestParameters() {
         return request_parameters;
@@ -84,11 +84,11 @@ public class BeaconRequestQuery<K extends BeaconRequestParameters> {
     }
 
     public Boolean getTestMode() {
-        return testMode;
+        return test_mode;
     }
     
-    public void setTestMode(Boolean testMode) {
-        this.testMode = testMode;
+    public void setTestMode(Boolean test_mode) {
+        this.test_mode = test_mode;
     }
 
 }
