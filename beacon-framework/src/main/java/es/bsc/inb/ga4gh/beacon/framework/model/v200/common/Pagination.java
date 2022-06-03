@@ -56,7 +56,7 @@ public class Pagination {
         return skip;
     }
     
-    public void setSkip(final Integer skip) {
+    public void setSkip(Integer skip) {
         this.skip = skip;
     }
     
