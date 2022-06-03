@@ -26,6 +26,7 @@
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.responses;
 
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.BasicElement;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.OntologyTerm;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.SchemaReference;
 import jakarta.json.bind.annotation.JsonbProperty;
 import java.util.List;
@@ -40,7 +41,7 @@ public class EntryTypeDefinition {
     private String id;
     private String name;
     private String description;
-    //private OntologyTerm ontologyTermForThisType;
+    private OntologyTerm ontologyTermForThisType;
     private String part_of_specification;
     private SchemaReference default_schema;
     private List<SchemaReference> additionally_supported_schemas;
@@ -82,6 +83,14 @@ public class EntryTypeDefinition {
         this.description = description;
     }
 
+    public OntologyTerm getOntologyTermForThisType() {
+        return ontologyTermForThisType;
+    }
+
+    public void setOntologyTermForThisType(OntologyTerm ontologyTermForThisType) {
+        this.ontologyTermForThisType = ontologyTermForThisType;
+    }
+ 
     public String getPartOfSpecification() {
         return part_of_specification;
     }
