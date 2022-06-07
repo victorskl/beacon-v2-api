@@ -23,30 +23,30 @@
  * *****************************************************************************
  */
 
-package es.bsc.inb.ga4gh.beacon.framework.v200;
-
-import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconInfoResponse;
-import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconMapResponse;
-import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconEntryTypesResponse;
-import es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration.ServiceConfiguration;
-import es.bsc.inb.ga4gh.service_info.model.v100.Service;
+package es.bsc.inb.ga4gh.beacon.framework.model.v200.responses;
 
 /**
  * @author Dmitry Repchevsky
  */
 
-public interface BeaconInterface {
-
-    BeaconInfoResponse getBeaconInfoRoot(String requestedSchema);
+public class BeaconEntryTypesResponse {
     
-    BeaconInfoResponse getBeaconInfo(String requestedSchema);
+    private BeaconInformationalResponseMeta meta;
+    private EntryTypes entry_types;
     
-    Service getBeaconServiceInfo();
+    public BeaconInformationalResponseMeta getMeta() {
+        return meta;
+    }
     
-    ServiceConfiguration getBeaconConfiguration();
-
-    BeaconMapResponse getBeaconMap();
-
-    BeaconEntryTypesResponse getEntryTypes();
-
+    public void setMeta(BeaconInformationalResponseMeta meta) {
+        this.meta = meta;
+    }
+    
+    public EntryTypes getRespnse() {
+        return entry_types;
+    }
+    
+    public void setResponse(EntryTypes entry_types) {
+        this.entry_types = entry_types;
+    }
 }

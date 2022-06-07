@@ -25,7 +25,7 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200;
 
-import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.EntryTypesResponse;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconEntryTypesResponse;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import org.junit.Test;
@@ -57,7 +57,7 @@ public class EntryTypesResponseTest {
     @Test
     public void deserialize() {
         final Jsonb jsonb = JsonbBuilder.create();
-        final EntryTypesResponse response = jsonb.fromJson(ENTRY_TYPE_RESPONSE, EntryTypesResponse.class);
+        final BeaconEntryTypesResponse response = jsonb.fromJson(ENTRY_TYPE_RESPONSE, BeaconEntryTypesResponse.class);
         
         // todo
     }
