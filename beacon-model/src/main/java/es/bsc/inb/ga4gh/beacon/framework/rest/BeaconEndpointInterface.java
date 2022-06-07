@@ -28,7 +28,7 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 import es.bsc.inb.ga4gh.beacon.framework.v200.BeaconInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconInfoResponse;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconMapResponse;
-import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.EntryTypesResponse;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconEntryTypesResponse;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration.ServiceConfiguration;
 import es.bsc.inb.ga4gh.service_info.model.v100.Service;
 import jakarta.ws.rs.GET;
@@ -78,6 +78,6 @@ public interface BeaconEndpointInterface extends BeaconInterface {
     @Path("/entry_types")
     @Produces(MediaType.APPLICATION_JSON)        
     @Override
-    EntryTypesResponse getEntryTypes();
+    BeaconEntryTypesResponse getEntryTypes();
 
 }
