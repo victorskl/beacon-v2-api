@@ -25,21 +25,28 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.requests;
 
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.SchemaPerEntity;
+import jakarta.json.bind.annotation.JsonbProperty;
+import java.util.List;
+
 /**
  * @author Dmitry Repchevsky
  */
 
 public class BeaconRequestMeta {
 
-    private String beacon_id;
+    private String schema;
     private String api_version;
+    private List<SchemaPerEntity> requested_schemas;
 
-    public String getBeaconId() {
-        return beacon_id;
+    @JsonbProperty("$schema")
+    public String getSchema() {
+        return schema;
     }
-
-    public void setBeaconId(String beacon_id) {
-        this.beacon_id = beacon_id;
+    
+    @JsonbProperty("$schema")
+    public void setSchema(String schema) {
+        this.schema = schema;
     }
     
     public String getApiVersion() {
@@ -48,5 +55,13 @@ public class BeaconRequestMeta {
 
     public void setApiVersion(String api_version) {
         this.api_version = api_version;
+    }
+    
+    public List<SchemaPerEntity> getRequestedSchemas() {
+        return requested_schemas;
+    }
+    
+    public void setRequestedSchemas(List<SchemaPerEntity> requested_schemas) {
+        this.requested_schemas = requested_schemas;
     }
 }
