@@ -42,7 +42,7 @@ public class BeaconEntryTypesResponse {
         this.meta = meta;
     }
     
-    public EntryTypes getRespnse() {
+    public EntryTypes getResponse() {
         return entry_types;
     }
     
