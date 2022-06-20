@@ -25,22 +25,21 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.responses;
 
-import jakarta.json.JsonObject;
 import java.util.List;
 
 /**
  * @author Dmitry Repchevsky
  */
 
-public class BeaconCollections {
+public class BeaconCollections<T> {
 
-    private List<JsonObject> collections;
+    private List<T> collections;
     
-    public List<JsonObject> getCollections() {
+    public List<T> getCollections() {
         return collections;
     }
     
-    public void setColections(List<JsonObject> collections) {
+    public void setColections(List<T> collections) {
         this.collections = collections;
     }
 }
