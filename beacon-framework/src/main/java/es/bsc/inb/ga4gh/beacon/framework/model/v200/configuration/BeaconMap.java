@@ -26,6 +26,7 @@
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration;
 
 import jakarta.json.bind.annotation.JsonbProperty;
+import java.util.Map;
 
 /**
  * @author Dmitry Repchevsky
@@ -34,6 +35,7 @@ import jakarta.json.bind.annotation.JsonbProperty;
 public class BeaconMap {
     
     private String schema;
+    private Map<String, Endpoint> endpoint_sets;
     
     @JsonbProperty("$schema")
     public String getSchema() {
@@ -43,5 +45,13 @@ public class BeaconMap {
     @JsonbProperty("$schema")
     public void setSchema(String schema) {
         this.schema = schema;
+    }
+    
+    public Map<String, Endpoint> getEndpointSets() {
+        return endpoint_sets;
+    }
+    
+    public void setEndpointSets(Map<String, Endpoint> endpoint_sets) {
+        this.endpoint_sets = endpoint_sets;
     }
 }
