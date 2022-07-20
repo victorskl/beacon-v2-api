@@ -27,6 +27,7 @@ package es.bsc.inb.ga4gh.beacon.framework;
 
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
+import java.util.List;
 
 /**
  * GA4GH Beacon API Specification - Biosamples endpoints.
@@ -46,7 +47,8 @@ public interface BiosamplesInterface {
      * @return 
      */
     BeaconResultsetsResponse getBiosamples(
-            String requested_schema, Integer skip, Integer limit, String include_responses);
+            String requested_schema, Integer skip, Integer limit, 
+            String include_responses, List<String> filters);
 
     /**
      * Get a list of biosamples.

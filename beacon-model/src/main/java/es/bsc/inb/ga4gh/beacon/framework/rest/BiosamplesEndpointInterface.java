@@ -37,6 +37,7 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.container.AsyncResponse;
 import jakarta.ws.rs.container.Suspended;
 import jakarta.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
  * @author Dmitry Repchevsky
@@ -54,17 +55,20 @@ public interface BiosamplesEndpointInterface
             @QueryParam("skip") Integer skip,
             @QueryParam("limit") Integer limit,
             @QueryParam("includeResultsetResponses") String include_responses,
+            @QueryParam("filters") List<String> filters,
             @Suspended AsyncResponse asyncResponse) {
 
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
                 asyncResponse.resume(
-                        getBiosamples(requested_schema, skip, limit, include_responses));
+                        getBiosamples(requested_schema, skip, limit, 
+                                include_responses, filters));
             });
         } else {
             asyncResponse.resume(
-                    getBiosamples(requested_schema, skip, limit, include_responses));
+                    getBiosamples(requested_schema, skip, limit, 
+                            include_responses, filters));
         }        
     }
 
