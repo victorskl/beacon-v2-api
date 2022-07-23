@@ -28,7 +28,7 @@ package es.bsc.inb.ga4gh.beacon.framework.model.v200.responses;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.BasicElement;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.OntologyTerm;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.SchemaReference;
-import jakarta.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbProperty;
 import java.util.List;
 
 /**

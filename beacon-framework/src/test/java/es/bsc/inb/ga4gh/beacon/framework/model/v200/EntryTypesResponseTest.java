@@ -26,8 +26,8 @@
 package es.bsc.inb.ga4gh.beacon.framework.model.v200;
 
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconEntryTypesResponse;
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import org.junit.Test;
 
 /**

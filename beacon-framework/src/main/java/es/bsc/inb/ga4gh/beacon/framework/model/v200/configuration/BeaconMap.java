@@ -25,7 +25,7 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration;
 
-import jakarta.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbProperty;
 import java.util.Map;
 
 /**

@@ -33,7 +33,7 @@ import es.bsc.inb.ga4gh.beacon.model.v200.common.Treatment;
 import es.bsc.inb.ga4gh.beacon.model.v200.biosample.Measurement;
 import es.bsc.inb.ga4gh.beacon.model.v200.common.PhenotypicFeature;
 import es.bsc.inb.ga4gh.beacon.model.v200.biosample.Procedure;
-import jakarta.json.JsonObject;
+import javax.json.JsonObject;
 import java.io.Serializable;
 import java.util.List;
 

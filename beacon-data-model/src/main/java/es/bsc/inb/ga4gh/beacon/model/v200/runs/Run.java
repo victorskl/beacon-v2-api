@@ -26,7 +26,7 @@
 package es.bsc.inb.ga4gh.beacon.model.v200.runs;
 
 import es.bsc.inb.ga4gh.beacon.model.v200.common.OntologyTerm;
-import jakarta.json.JsonObject;
+import javax.json.JsonObject;
 import java.io.Serializable;
 import java.time.LocalDate;
 

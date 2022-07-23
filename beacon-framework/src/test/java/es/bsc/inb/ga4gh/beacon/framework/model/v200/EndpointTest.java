@@ -27,8 +27,8 @@ package es.bsc.inb.ga4gh.beacon.framework.model.v200;
 
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration.Endpoint;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration.RelatedEndpoint;
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Test;

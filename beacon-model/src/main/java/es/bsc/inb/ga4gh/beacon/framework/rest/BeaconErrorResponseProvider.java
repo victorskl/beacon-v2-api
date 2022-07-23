@@ -27,10 +27,10 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconError;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconErrorResponse;
-import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.ext.ExceptionMapper;
-import jakarta.ws.rs.ext.Provider;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
 import java.net.HttpURLConnection;
 
 /**
