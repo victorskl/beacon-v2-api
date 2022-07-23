@@ -25,7 +25,7 @@
 
 package es.bsc.inb.ga4gh.beacon.model.v200.variations;
 
-import jakarta.json.JsonObject;
+import javax.json.JsonObject;
 import java.io.Serializable;
 import java.util.Map;
 

@@ -26,7 +26,7 @@
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.responses;
 
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.common.Handover;
-import jakarta.json.JsonObject;
+import javax.json.JsonObject;
 import java.util.List;
 
 /**

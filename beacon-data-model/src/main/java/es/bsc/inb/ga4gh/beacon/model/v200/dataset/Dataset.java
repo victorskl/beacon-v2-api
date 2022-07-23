@@ -26,7 +26,7 @@
 package es.bsc.inb.ga4gh.beacon.model.v200.dataset;
 
 import es.bsc.inb.ga4gh.beacon.model.v200.common.DataUseConditions;
-import jakarta.json.JsonObject;
+import javax.json.JsonObject;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 

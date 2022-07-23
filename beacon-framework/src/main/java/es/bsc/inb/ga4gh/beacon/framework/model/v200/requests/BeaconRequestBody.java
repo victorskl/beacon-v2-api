@@ -25,7 +25,7 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.requests;
 
-import jakarta.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbProperty;
 
 /**
  * @author Dmitry Repchevsky

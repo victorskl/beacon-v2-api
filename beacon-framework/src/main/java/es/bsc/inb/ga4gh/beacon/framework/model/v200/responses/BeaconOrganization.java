@@ -25,7 +25,7 @@
 
 package es.bsc.inb.ga4gh.beacon.framework.model.v200.responses;
 
-import jakarta.json.JsonObject;
+import javax.json.JsonObject;
 
 /**
  * @author Dmitry Repchevsky
