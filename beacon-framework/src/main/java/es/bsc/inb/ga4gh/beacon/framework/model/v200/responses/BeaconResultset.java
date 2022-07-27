@@ -33,13 +33,13 @@ import java.util.List;
  * @author Dmitry Repchevsky
  */
 
-public class BeaconResultset<T> {
+public class BeaconResultset {
 
     private String id;
     private String set_type;
     private Boolean exists;
     private Integer results_count;
-    private List<T> results;
+    private List results;
     private List<Handover> results_handovers;
     private JsonObject info;
     
@@ -75,11 +75,11 @@ public class BeaconResultset<T> {
         this.results_count = results_count;
     }
 
-    public List<T> getResults() {
+    public <T> List<T> getResults() {
         return results;
     }
 
-    public void setResults(List<T> results) {
+    public void setResults(List results) {
         this.results = results;
     }
 
