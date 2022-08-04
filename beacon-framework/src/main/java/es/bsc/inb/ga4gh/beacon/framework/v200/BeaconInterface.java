@@ -29,6 +29,7 @@ import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconInfoResponse
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconMapResponse;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconEntryTypesResponse;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.configuration.ServiceConfiguration;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconFilteringTermsResponse;
 import es.bsc.inb.ga4gh.service_info.model.v100.Service;
 
 /**
@@ -49,4 +50,5 @@ public interface BeaconInterface {
 
     BeaconEntryTypesResponse getEntryTypes();
 
+    BeaconFilteringTermsResponse getFilteringTerms();
 }
