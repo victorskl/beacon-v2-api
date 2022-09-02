@@ -27,6 +27,8 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.IndividualsInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconFilteringTermsResponse;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
 import java.util.concurrent.ExecutorService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -59,12 +61,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getIndividuals(requested_schema, skip, limit, include_responses));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getIndividuals(requested_schema, skip, limit, include_responses);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getIndividuals(requested_schema, skip, limit, include_responses));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getIndividuals(requested_schema, skip, limit, include_responses);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -78,10 +90,20 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postIndividualsRequest(request));
+                try {
+                    final BeaconResultsetsResponse response = postIndividualsRequest(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postIndividualsRequest(request));
+            try {
+                final BeaconResultsetsResponse response = postIndividualsRequest(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -95,10 +117,20 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getOneIndividual(id));
+                try {
+                    final BeaconResultsetsResponse response = getOneIndividual(id);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneIndividual(id));
+            try {
+                final BeaconResultsetsResponse response = getOneIndividual(id);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -113,10 +145,20 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postOneIndividualRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneIndividualRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneIndividualRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneIndividualRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -133,14 +175,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneIndividualGenomicVariants(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneIndividualGenomicVariants(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneIndividualGenomicVariants(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneIndividualGenomicVariants(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -155,12 +205,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneIndividualGenomicVariantsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneIndividualGenomicVariantsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneIndividualGenomicVariantsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneIndividualGenomicVariantsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -177,14 +237,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneIndividualBiosamples(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneIndividualBiosamples(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneIndividualBiosamples(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneIndividualBiosamples(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -199,12 +267,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneIndividualBiosamplesRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneIndividualBiosamplesRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneIndividualBiosamplesRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneIndividualBiosamplesRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -219,11 +297,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getIndividualFilteringTerms(skip, limit));
+                try {
+                    final BeaconFilteringTermsResponse response = 
+                            getIndividualFilteringTerms(skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getIndividualFilteringTerms(skip, limit));
+            try {
+                final BeaconFilteringTermsResponse response = 
+                        getIndividualFilteringTerms(skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -237,11 +326,22 @@ public interface IndividualsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postIndividualFilteringTermsRequest(request));
+                try {
+                    final BeaconFilteringTermsResponse response = 
+                            postIndividualFilteringTermsRequest(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postIndividualFilteringTermsRequest(request));
+            try {
+                final BeaconFilteringTermsResponse response = 
+                        postIndividualFilteringTermsRequest(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 }

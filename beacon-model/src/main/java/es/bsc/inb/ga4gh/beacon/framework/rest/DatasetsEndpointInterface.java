@@ -27,6 +27,8 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.DatasetsInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconCollectionsResponse;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
 import java.util.concurrent.ExecutorService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -58,12 +60,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getDatasets(requested_schema, skip, limit));
+                try {
+                    final BeaconCollectionsResponse response = getDatasets(requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getDatasets(requested_schema, skip, limit));
+            try {
+                final BeaconCollectionsResponse response = getDatasets(requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         } 
     }
 
@@ -77,10 +87,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postDatasetsRequest(request));
+                try {
+                    final BeaconCollectionsResponse response = postDatasetsRequest(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postDatasetsRequest(request));
+            try {
+                final BeaconCollectionsResponse response = postDatasetsRequest(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -94,10 +114,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getOneDataset(id));
+                try {
+                    final BeaconResultsetsResponse response = getOneDataset(id);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneDataset(id));
+            try {
+                final BeaconResultsetsResponse response = getOneDataset(id);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -112,10 +142,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postOneDatasetRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneDatasetRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneDatasetRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneDatasetRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -132,14 +172,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneDatasetGenomicVariants(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = getOneDatasetGenomicVariants(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneDatasetGenomicVariants(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = getOneDatasetGenomicVariants(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -154,12 +200,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneDatasetGenomicVariantsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneDatasetGenomicVariantsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneDatasetGenomicVariantsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneDatasetGenomicVariantsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -176,14 +230,22 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneDatasetBiosamples(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneDatasetBiosamples(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneDatasetBiosamples(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneDatasetBiosamples(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -198,12 +260,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneDatasetBiosamplesRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneDatasetBiosamplesRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneDatasetBiosamplesRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneDatasetBiosamplesRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -220,14 +290,22 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneDatasetIndividuals(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneDatasetIndividuals(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneDatasetIndividuals(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneDatasetIndividuals(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -242,12 +320,20 @@ public interface DatasetsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneDatasetIndividualsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneDatasetIndividualsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneDatasetIndividualsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneDatasetIndividualsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 }

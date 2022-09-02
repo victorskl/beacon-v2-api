@@ -27,6 +27,7 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.GenomicVariationsInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
 import java.util.concurrent.ExecutorService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -70,20 +71,30 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
+                try {
+                    final BeaconResultsetsResponse response = 
                         getGenomicVariations(requested_schema, skip, limit, 
                                 include_responses, start, end, assembly_id, 
                                 reference_name, reference_bases, alternate_bases, 
                                 variant_min_length, variant_max_length,
-                                genomic_allele_short_form, gene_id, aminoacid_change));
+                                genomic_allele_short_form, gene_id, aminoacid_change);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
+            try {
+                final BeaconResultsetsResponse response = 
                     getGenomicVariations(requested_schema, skip, limit, 
                             include_responses, start, end, assembly_id, 
                             reference_name, reference_bases, alternate_bases, 
                             variant_min_length, variant_max_length,
-                            genomic_allele_short_form, gene_id, aminoacid_change));
+                            genomic_allele_short_form, gene_id, aminoacid_change);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -97,12 +108,20 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postGenomicVariationsRequest(request));
+                try {
+                    final BeaconResultsetsResponse response = postGenomicVariationsRequest(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postGenomicVariationsRequest(request));
+            try {
+                final BeaconResultsetsResponse response = postGenomicVariationsRequest(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -116,12 +135,20 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneGenomicVariation(id));
+                try {
+                    final BeaconResultsetsResponse response = getOneGenomicVariation(id);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneGenomicVariation(id));
+            try {
+                final BeaconResultsetsResponse response = getOneGenomicVariation(id);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -136,12 +163,22 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneGenomicVariationRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneGenomicVariationRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneGenomicVariationRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneGenomicVariationRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -158,10 +195,22 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getBiosamples(id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getBiosamples(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getBiosamples(id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getBiosamples(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -176,10 +225,20 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postBiosamplesRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postBiosamplesRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postBiosamplesRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postBiosamplesRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         } 
     }
 
@@ -196,10 +255,22 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getIndividuals(id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getIndividuals(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getIndividuals(id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getIndividuals(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         } 
     }
     
@@ -214,10 +285,22 @@ public interface GenomicVariationsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postIndividualsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postIndividualsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postIndividualsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postIndividualsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 }

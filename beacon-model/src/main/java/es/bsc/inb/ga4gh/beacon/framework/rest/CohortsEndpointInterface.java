@@ -27,6 +27,9 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.CohortsInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconCollectionsResponse;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconFilteringTermsResponse;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
 import java.util.concurrent.ExecutorService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -58,12 +61,22 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getCohorts(requested_schema, skip, limit));
+                try {
+                    final BeaconCollectionsResponse response = 
+                            getCohorts(requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getCohorts(requested_schema, skip, limit));
+            try {
+                final BeaconCollectionsResponse response = 
+                        getCohorts(requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         } 
     }
 
@@ -77,10 +90,20 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postCohortsRequest(request));
+                try {
+                    final BeaconCollectionsResponse response = postCohortsRequest(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postCohortsRequest(request));
+            try {
+                final BeaconCollectionsResponse response = postCohortsRequest(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -94,10 +117,20 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getOneCohort(id));
+                try {
+                    final BeaconResultsetsResponse response = getOneCohort(id);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneCohort(id));
+            try {
+                final BeaconResultsetsResponse response = getOneCohort(id);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -112,10 +145,20 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postOneCohortRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneCohortRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneCohortRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneCohortRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -132,14 +175,22 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneCohortIndividuals(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneCohortIndividuals(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneCohortIndividuals(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneCohortIndividuals(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -154,11 +205,22 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneCohortIndividualsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneCohortIndividualsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneCohortIndividualsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneCohortIndividualsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -174,11 +236,22 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneCohortFilteringTerms(id, skip, limit));
+                try {
+                    final BeaconFilteringTermsResponse response = 
+                            getOneCohortFilteringTerms(id, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneCohortFilteringTerms(id, skip, limit));
+            try {
+                final BeaconFilteringTermsResponse response = 
+                        getOneCohortFilteringTerms(id, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -193,11 +266,22 @@ public interface CohortsEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneCohortFilteringTermsRequest(id, request));
+                try {
+                    final BeaconFilteringTermsResponse response = 
+                            postOneCohortFilteringTermsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneCohortFilteringTermsRequest(id, request));
+            try {
+                final BeaconFilteringTermsResponse response = 
+                        postOneCohortFilteringTermsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 }

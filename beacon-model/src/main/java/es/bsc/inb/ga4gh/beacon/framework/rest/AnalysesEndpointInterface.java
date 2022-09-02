@@ -27,6 +27,7 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.AnalysesInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
 import java.util.concurrent.ExecutorService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -59,12 +60,20 @@ public interface AnalysesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getAnalyses(requested_schema, skip, limit, include_responses));
+                try {
+                    final BeaconResultsetsResponse response = getAnalyses(requested_schema, skip, limit, include_responses);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getAnalyses(requested_schema, skip, limit, include_responses));
+            try {
+                final BeaconResultsetsResponse response = getAnalyses(requested_schema, skip, limit, include_responses);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         } 
     }
         
@@ -78,10 +87,20 @@ public interface AnalysesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postAnalyses(request));
+                try {
+                    final BeaconResultsetsResponse response = postAnalyses(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postAnalyses(request));
+            try {
+                final BeaconResultsetsResponse response = postAnalyses(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -95,10 +114,20 @@ public interface AnalysesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getOneAnalysis(id));
+                try {
+                    final BeaconResultsetsResponse response = getOneAnalysis(id);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneAnalysis(id));
+            try {
+                final BeaconResultsetsResponse response = getOneAnalysis(id);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -113,10 +142,20 @@ public interface AnalysesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postOneAnalysisRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneAnalysisRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneAnalysisRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneAnalysisRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -133,11 +172,22 @@ public interface AnalysesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneAnalysisGenomicVariants(id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneAnalysisGenomicVariants(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneAnalysisGenomicVariants(id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneAnalysisGenomicVariants(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
     
@@ -152,11 +202,22 @@ public interface AnalysesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneAnalysisGenomicVariantsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneAnalysisGenomicVariantsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneAnalysisGenomicVariantsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneAnalysisGenomicVariantsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 

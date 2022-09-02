@@ -27,6 +27,7 @@ package es.bsc.inb.ga4gh.beacon.framework.rest;
 
 import es.bsc.inb.ga4gh.beacon.framework.BiosamplesInterface;
 import es.bsc.inb.ga4gh.beacon.framework.model.v200.requests.BeaconRequestBody;
+import es.bsc.inb.ga4gh.beacon.framework.model.v200.responses.BeaconResultsetsResponse;
 import java.util.concurrent.ExecutorService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -61,14 +62,24 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getBiosamples(requested_schema, skip, limit, 
-                                include_responses, filters));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getBiosamples(requested_schema, skip, limit, 
+                                include_responses, filters);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getBiosamples(requested_schema, skip, limit, 
-                            include_responses, filters));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getBiosamples(requested_schema, skip, limit, 
+                            include_responses, filters);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -82,10 +93,20 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postBiosamplesRequest(request));
+                try {
+                    final BeaconResultsetsResponse response = postBiosamplesRequest(request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postBiosamplesRequest(request));
+            try {
+                final BeaconResultsetsResponse response = postBiosamplesRequest(request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -99,10 +120,20 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(getOneBiosample(id));
+                try {
+                    final BeaconResultsetsResponse response = getOneBiosample(id);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(getOneBiosample(id));
+            try {
+                final BeaconResultsetsResponse response = getOneBiosample(id);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -117,10 +148,20 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postOneBiosampleRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = postOneBiosampleRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(postOneBiosampleRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = postOneBiosampleRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 
@@ -137,14 +178,22 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneBiosampleGenomicVariants(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = getOneBiosampleGenomicVariants(
+                                id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneBiosampleGenomicVariants(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = getOneBiosampleGenomicVariants(
+                            id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -159,12 +208,22 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        postOneBiosampleGenomicVariantsRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneBiosampleGenomicVariantsRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneBiosampleGenomicVariantsRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneBiosampleGenomicVariantsRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -181,14 +240,22 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneBiosampleAnalysis(
-                                id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneBiosampleAnalysis(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    getOneBiosampleAnalysis(
-                            id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneBiosampleAnalysis(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -203,11 +270,22 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(postOneBiosampleAnalysisRequest(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            postOneBiosampleAnalysisRequest(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                    postOneBiosampleAnalysisRequest(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        postOneBiosampleAnalysisRequest(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
 
@@ -224,12 +302,22 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneBiosampleRuns(id, requested_schema, skip, limit));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneBiosampleRuns(id, requested_schema, skip, limit);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                getOneBiosampleRuns(id, requested_schema, skip, limit));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneBiosampleRuns(id, requested_schema, skip, limit);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }        
     }
     
@@ -244,12 +332,22 @@ public interface BiosamplesEndpointInterface
         final ExecutorService executor = getExecutorService();
         if (executor != null) {
             executor.submit(() -> {
-                asyncResponse.resume(
-                        getOneBiosampleRuns(id, request));
+                try {
+                    final BeaconResultsetsResponse response = 
+                            getOneBiosampleRuns(id, request);
+                    asyncResponse.resume(response);
+                } catch (Exception ex) {
+                    asyncResponse.resume(ex);
+                }
             });
         } else {
-            asyncResponse.resume(
-                getOneBiosampleRuns(id, request));
+            try {
+                final BeaconResultsetsResponse response = 
+                        getOneBiosampleRuns(id, request);
+                asyncResponse.resume(response);
+            } catch (Exception ex) {
+                asyncResponse.resume(ex);
+            }
         }
     }
 }
