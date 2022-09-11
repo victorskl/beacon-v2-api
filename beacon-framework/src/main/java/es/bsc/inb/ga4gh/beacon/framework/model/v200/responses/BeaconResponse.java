@@ -33,15 +33,43 @@ import java.util.List;
  * @author Dmitry Repchevsky
  */
 
-public class BeaconCollectionsResponse extends BeaconResponse {
+public class BeaconResponse {
 
-    private BeaconCollections response;
+    private BeaconResponseMeta meta;
+    private BeaconResponseSummary response_summary;
+    private List<Handover> beacon_handovers;
+    private JsonObject info;
     
-    public BeaconCollections getResponse() {
-        return response;
+    public BeaconResponseMeta getMeta() {
+        return meta;
     }
     
-    public void setResponse(BeaconCollections response) {
-        this.response = response;
+    public void setMeta(BeaconResponseMeta meta) {
+        this.meta = meta;
     }
+    
+    public BeaconResponseSummary getResponseSummary() {
+        return response_summary;
+    }
+    
+    public void setResponseSummary(BeaconResponseSummary response_summary) {
+        this.response_summary = response_summary;
+    }
+
+    public List<Handover> getBeaconHandovers() {
+        return beacon_handovers;
+    }
+    
+    public void setBeaconHandovers(List<Handover> beacon_handovers) {
+        this.beacon_handovers = beacon_handovers;
+    }
+
+    public JsonObject getInfo() {
+        return info;
+    }
+
+    public void setInfo(JsonObject info) {
+        this.info = info;
+    }
+    
 }

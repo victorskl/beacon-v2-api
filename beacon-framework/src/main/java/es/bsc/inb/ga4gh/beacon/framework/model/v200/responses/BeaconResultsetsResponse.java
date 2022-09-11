@@ -33,37 +33,9 @@ import java.util.List;
  * @author Dmitry Repchevsky
  */
 
-public class BeaconResultsetsResponse {
+public class BeaconResultsetsResponse extends BeaconResponse {
     
-    private BeaconResponseMeta meta;
-    private BeaconResponseSummary response_summary;
-    private List<Handover> beacon_handovers;
     private BeaconResultsets response;
-    private JsonObject info;
-    
-    public BeaconResponseMeta getMeta() {
-        return meta;
-    }
-    
-    public void setMeta(BeaconResponseMeta meta) {
-        this.meta = meta;
-    }
-    
-    public BeaconResponseSummary getResponseSummary() {
-        return response_summary;
-    }
-    
-    public void setResponseSummary(BeaconResponseSummary response_summary) {
-        this.response_summary = response_summary;
-    }
-
-    public List<Handover> getBeaconHandovers() {
-        return beacon_handovers;
-    }
-    
-    public void setBeaconHandovers(List<Handover> beacon_handovers) {
-        this.beacon_handovers = beacon_handovers;
-    }
 
     public BeaconResultsets getResponse() {
         return response;
@@ -71,13 +43,5 @@ public class BeaconResultsetsResponse {
     
     public void setResponse(BeaconResultsets response) {
         this.response = response;
-    }
-
-    public JsonObject getInfo() {
-        return info;
-    }
-
-    public void setInfo(JsonObject info) {
-        this.info = info;
     }
 }
