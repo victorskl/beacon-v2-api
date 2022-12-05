@@ -127,8 +127,8 @@ public interface Biosample<K extends OntologyTerm, L extends Procedure,
     K getHistologicalDiagnosis();
     void setHistologicalDiagnosis(K histologicalDiagnosis);
     
-    K getDiagnosticMarkers();
-    void setDiagnosticMarkers(K diagnosticMarkers);
+    List<K> getDiagnosticMarkers();
+    void setDiagnosticMarkers(List<K> diagnosticMarkers);
     
     List<M> getPhenotypicFeatures();
     void setPhenotypicFeatures(List<M> phenotypicFeatures);
