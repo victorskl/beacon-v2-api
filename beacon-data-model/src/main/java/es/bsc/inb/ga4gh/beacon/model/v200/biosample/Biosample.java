@@ -121,8 +121,8 @@ public interface Biosample<K extends OntologyTerm, L extends Procedure,
     K getPathologicalStage();
     void setPathologicalStage(K pathologicalStage);
 
-    K getPathologicalTnmFinding();
-    void setPathologicalTnmFinding(K pathologicalTnmFinding);
+    List<K> getPathologicalTnmFinding();
+    void setPathologicalTnmFinding(List<K> pathologicalTnmFinding);
     
     K getHistologicalDiagnosis();
     void setHistologicalDiagnosis(K histologicalDiagnosis);
