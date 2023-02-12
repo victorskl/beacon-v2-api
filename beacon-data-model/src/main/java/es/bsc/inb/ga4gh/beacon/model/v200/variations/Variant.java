@@ -29,10 +29,13 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * draft-4
+ * Updated to the latest Beacon v2 spec
+ * Keeping it Position for backward compatibility purpose
  * 
  * @author Dmitry Repchevsky
- * 
+ * @author Victor San Kho Lin
+ *
+ * @param <V> Variation implementation class
  * @param <K> Position implementation class
  * @param <L> Identifiers implementation class
  * @param <M> MolecularAttributes implementation class
@@ -41,25 +44,19 @@ import java.util.List;
  * @param <P> PopulationsFrequencies implementation class
  */
 
-public interface Variant<K extends Position, L extends Identifiers, 
+public interface Variant<V extends Variation, K extends Position, L extends Identifiers,
         M extends MolecularAttributes, N extends CaseLevelVariant,
         O extends VariantLevelData, P extends PopulationFrequencies> extends Serializable {
     
     String getVariantInternalId();
     void setVariantInternalId(String variantInternalId);
-    
-    String getVariantType();
-    void setVariantType(String variantType);
-    
-    String getReferenceBases();
-    void setReferenceBases(String referenceBases);
-    
-    String getAlternateBases();
-    void setAlternateBases(String alternateBases);
-    
+
+    V getVariation();
+    void setVariation(V variation);
+
     K getPosition();
     void setPosition(K position);
-    
+
     L getIdentifiers();
     void setIdentifiers(L identifiers);
     
